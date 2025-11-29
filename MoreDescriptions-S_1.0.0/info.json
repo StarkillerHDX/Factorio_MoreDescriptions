@@ -1,6 +1,6 @@
 {
   "name": "MoreDescriptions-S",
-  "version": "1.0.0",
+  "version": "1.1.0",
   "title": "More Descriptions",
   "author": "StarkillerHDX",
   "factorio_version": "2.0",
@@ -11,4 +11,5 @@
     "? quality"
   ],
   "description": "Adds flavored and basic descriptions to almost every item and entity in the game."
+
 }
