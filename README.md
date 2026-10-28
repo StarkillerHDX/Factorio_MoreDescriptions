@@ -11,3 +11,4 @@ Adds flavored and basic descriptions to almost every item and entity in the game
 * 🇯🇵 Japanese/日本語 (base game) - Translated by shibagouki.
 * 🇫🇷 French/Français - Translated by Supershadow301.
 * 🇨🇳 Chinese (Simplified)/简体中文 - Translated by DostGit (wittiness amped up + support for AAI industry).
+* 🇷🇺 Russian/Русский - Translated by vlad433.
