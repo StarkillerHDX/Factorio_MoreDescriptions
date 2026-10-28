@@ -1,4 +1,14 @@
 ---------------------------------------------------------------------------------------------------
+Version: 1.3.0
+Date: 28.10.2026
+  Compatibility:
+    - Updated for Factorio 2.1.
+  Features:
+    - (EN, DE) Added descriptions for the landing pad unloading bay, hot volcanic rocks and flooded Fulgoran ruins.
+  Bugfixes:
+    - Fixed MK2 and MK3 equipment items showing the generic tier 1 description instead of their own.
+
+---------------------------------------------------------------------------------------------------
 Version: 1.2.0
 Date: 03.12.2025
   Major Features:
