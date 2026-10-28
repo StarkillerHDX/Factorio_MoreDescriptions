@@ -1,64 +1,60 @@
--- This script *TRIES* to remove the "templated" descriptions from certain items
--- so that the custom descriptions from the locale files will be used instead.
--- I can't get tiered equipment items to work. They all use the tier 1 description.
+-- Clears the templated localised_description that vanilla sets on some prototypes,
+-- so the descriptions from this mod's locale files are shown instead.
+-- Missing prototypes are skipped, so a mod that removes one cannot break loading.
 
-----------------------------------------------------
--- BASE GAME FIXES (Always run)
-----------------------------------------------------
+local function clear_description(prototype_type, name)
+  local prototype = data.raw[prototype_type] and data.raw[prototype_type][name]
+  if prototype then
+    prototype.localised_description = nil
+  end
+end
 
--- Clear module descriptions - works
-data.raw.module["speed-module-2"].localised_description = nil
-data.raw.module["speed-module-3"].localised_description = nil
-data.raw.module["productivity-module-2"].localised_description = nil
-data.raw.module["productivity-module-3"].localised_description = nil
-data.raw.module["efficiency-module-2"].localised_description = nil
-data.raw.module["efficiency-module-3"].localised_description = nil
+-- ==================== BASE GAME ====================
 
--- Clear base science pack descriptions - works
-data.raw.tool["automation-science-pack"].localised_description = nil
-data.raw.tool["logistic-science-pack"].localised_description = nil
-data.raw.tool["military-science-pack"].localised_description = nil
-data.raw.tool["chemical-science-pack"].localised_description = nil
-data.raw.tool["production-science-pack"].localised_description = nil
-data.raw.tool["utility-science-pack"].localised_description = nil
-data.raw.tool["space-science-pack"].localised_description = nil
+-- Modules
+clear_description("module", "speed-module-2")
+clear_description("module", "speed-module-3")
+clear_description("module", "productivity-module-2")
+clear_description("module", "productivity-module-3")
+clear_description("module", "efficiency-module-2")
+clear_description("module", "efficiency-module-3")
 
--- Clear base game tiered item descriptions (MK2) - doesn't work :(
-data.raw.armor["power-armor-mk2"].localised_description = nil
-data.raw["energy-shield-equipment"]["energy-shield-mk2-equipment"].localised_description = nil
-data.raw["battery-equipment"]["battery-mk2-equipment"].localised_description = nil
-data.raw["roboport-equipment"]["personal-roboport-mk2-equipment"].localised_description = nil
+-- Science packs
+clear_description("item", "automation-science-pack")
+clear_description("item", "logistic-science-pack")
+clear_description("item", "military-science-pack")
+clear_description("item", "chemical-science-pack")
+clear_description("item", "production-science-pack")
+clear_description("item", "utility-science-pack")
+clear_description("item", "space-science-pack")
 
+-- Tiered equipment: the template sits on the item, not on the equipment prototype
+clear_description("item", "energy-shield-mk2-equipment")
+clear_description("item", "battery-mk2-equipment")
+clear_description("item", "personal-roboport-mk2-equipment")
 
-----------------------------------------------------
--- SPACE AGE SPECIFIC FIXES (Only run if Space Age is active)
-----------------------------------------------------
+-- ==================== SPACE AGE ====================
 
--- Check if the "space-age" DLC is loaded before proceeding
 if mods["space-age"] then
 
-  -- Clear Space Age science pack descriptions - works
-  data.raw.tool["agricultural-science-pack"].localised_description = nil
-  data.raw.tool["metallurgic-science-pack"].localised_description = nil
-  data.raw.tool["electromagnetic-science-pack"].localised_description = nil
-  data.raw.tool["cryogenic-science-pack"].localised_description = nil
-  data.raw.tool["promethium-science-pack"].localised_description = nil
+  -- Science packs
+  clear_description("item", "agricultural-science-pack")
+  clear_description("item", "metallurgic-science-pack")
+  clear_description("item", "electromagnetic-science-pack")
+  clear_description("item", "cryogenic-science-pack")
+  clear_description("item", "promethium-science-pack")
 
-  -- Clear Space Age tiered item descriptions (MK3) - doesn't work :(
-  data.raw["battery-equipment"]["battery-mk3-equipment"].localised_description = nil
+  -- Tiered equipment
+  clear_description("item", "battery-mk3-equipment")
 
 end
 
+-- ==================== QUALITY ====================
 
-----------------------------------------------------
--- QUALITY SPECIFIC FIXES (Only run if Quality is active)
-----------------------------------------------------
-
--- Check if the "quality" DLC is loaded before proceeding
 if mods["quality"] then
 
-  -- Clear quality module descriptions - works
-  data.raw.module["quality-module-2"].localised_description = nil
-  data.raw.module["quality-module-3"].localised_description = nil
+  -- Modules
+  clear_description("module", "quality-module-2")
+  clear_description("module", "quality-module-3")
 
 end
