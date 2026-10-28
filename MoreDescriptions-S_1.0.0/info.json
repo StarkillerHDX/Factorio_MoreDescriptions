@@ -1,14 +1,15 @@
 {
   "name": "MoreDescriptions-S",
-  "version": "1.2.0",
+  "version": "1.3.0",
   "title": "More Descriptions",
   "author": "StarkillerHDX",
-  "factorio_version": "2.0",
+  "factorio_version": "2.1",
   "dependencies": [
-    "base >= 2.0",
+    "base >= 2.1",
     "? space-age",
     "? elevated-rails",
-    "? quality"
+    "? quality",
+    "? recycler"
   ],
   "description": "Adds flavored and basic descriptions to almost every item and entity in the game."
 
